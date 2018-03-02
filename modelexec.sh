@@ -6,8 +6,10 @@ read IP
 if 
  ping -c 1 $IP &> /dev/null
  then
-	  echo "Copiando proyecto a instancia"      
-      sudo scp -oStrictHostKeyChecking=no -i /home/centos/cluster_test_biba.pem  /home/centos/ProColombia/* centos@$IP:/home/centos
+	echo "Bajando repositorio ProColombia"
+
+      sudo ssh -oStrictHostKeyChecking=no -i /home/centos/cluster_test_biba.pem centos@$IP "sudo yum -y install git"
+      sudo ssh -oStrictHostKeyChecking=no -i /home/centos/cluster_test_biba.pem centos@$IP "sudo git clone https://github.com/eysdevteam/ProColombia.git"
       echo "Conectado Mediante SSH - Moviendo Archivos Necesarios para Ejecución"
       sudo ssh -oStrictHostKeyChecking=no -i /home/centos/cluster_test_biba.pem centos@$IP "sudo mv /home/centos/ProColombia/DashboardProc /var/www/html/"
       sudo ssh -oStrictHostKeyChecking=no -i /home/centos/cluster_test_biba.pem centos@$IP "sudo mv /home/centos/ProColombia/Datos /home/centos/"       
