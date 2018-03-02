@@ -1,0 +1,43 @@
+.margin_row {
+	border: 1px solid red;
+}
+
+.margin_col {
+	border: 1px solid black;
+}
+
+.title{
+	padding-left:5px;
+	padding-right:5px;
+	font-family: 'Barlow Condensed', sans-serif;
+	font-size:15px;
+}
+
+.title_main{
+	text-decoration: underline;
+	font-size:17px;
+}
+
+.bullet { font: 10px sans-serif; }
+.bullet .tick line { stroke: #666; stroke-width: .5px; }
+.bullet .range.s0 { fill: #a3a3c2; }
+.bullet .range.s1 { fill: #b3b3cc; }
+.bullet .range.s2 { fill: #c2c2d6; }
+.bullet .range.s3 { fill: #d1d1e0; }
+.bullet .range.s4 { fill: #e0e0eb; }
+.bullet .range.s0:hover{ transform: scale(1.01); }
+.bullet .range.s1:hover{ transform: scale(1.01); }
+.bullet .range.s2:hover{ transform: scale(1.01); }
+.bullet .range.s3:hover{ transform: scale(1.01); }
+.bullet .range.s4:hover{ transform: scale(1.01); }
+.bullet .title { 
+	font-family: 'Quicksand', sans-serif;
+	font-size: 10px;
+	/*font-weight: bold;*/}
+.bullet .title:hover{ transform: scale(1.05); }
+
+.font{ 
+	font-family: 'Quicksand', sans-serif !important;
+	font-size: 15px;
+	/*font-weight: bold;*/
+}
