@@ -10,7 +10,6 @@ do
              sudo yum install git
              sudo git clone https://github.com/eysdevteam/ProColombia.git
              sudo mv /home/centos/ProColombia/modelexec.sh /home/centos/
-             sudo mv /home/centos/ProColombia/datos /home/centos/
              sudo chown root:root /home/centos/modelexec.sh
              sudo chmod +x /home/centos/modelexec.sh
              sudo bash /home/centos/modelexec.sh
