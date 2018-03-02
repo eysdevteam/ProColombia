@@ -33,15 +33,8 @@ function donut(dataset, container) {
       height = 150,
       radius = Math.min(width, height) / 2;
      
-if (container=="#IPSmejoraron") {
   var color  = d3.scale.ordinal()
-      .range(["rgb(60, 85, 164)","#EBE8E8"]);
-    }
-    else
-    {
-      var color  = d3.scale.ordinal()
       .range(["rgb(165, 0, 38)","#EBE8E8"]);
-    }
 
   var pie = d3.layout.pie()
       .sort(null);
@@ -59,7 +52,7 @@ if (container=="#IPSmejoraron") {
   var path = svg.selectAll("path")
       .data(pie(dataset))
       .enter().append("path")
-      .attr("fill", function(d, i) { return color(i); })
+      .attr("fill", function(d, i) { return color(d); })
       .attr("d", arc);
 
   svg.append("text")
@@ -393,7 +386,7 @@ var imagen = svg.append("svg:image")
     //});
 }
 
-////////////////FunciÃ³n principal////////////////////////////////////////
+////////////////FunciÃƒÂ³n principal////////////////////////////////////////
 function principalBullet(data,container,title){
     var margin = {top: 5, right: 40, bottom: 20, left: 70},
     width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
@@ -421,7 +414,7 @@ function principalBullet(data,container,title){
             .text(function(d) { return d.seccion; });
       } 
 }
-////////////////////////////// FunciÃ³n de atributos y parÃ¡metros de configuraciÃ³n//////////////////////////
+////////////////////////////// FunciÃƒÂ³n de atributos y parÃƒÂ¡metros de configuraciÃƒÂ³n//////////////////////////
  d3.bullet = function() {
     var orient = "left", 
         reverse = false,
@@ -430,7 +423,7 @@ function principalBullet(data,container,title){
         markers = bulletMarkers,
         width = 380,
         height = 30;
-  // For each small multipleâ€¦
+  // For each small multipleÃ¢â‚¬Â¦
   function bullet(g) {
     g.each(function(d, i) {
       var rangez = ranges.call(this, d, i).slice().sort(d3.descending),
