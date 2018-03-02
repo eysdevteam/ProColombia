@@ -7,7 +7,7 @@ do
     case $opt in
         "Run model*")
              echo "Copiando script de modelo"
-             sudo yum install git
+             sudo yum -y install git
              sudo git clone https://github.com/eysdevteam/ProColombia.git
              sudo mv /home/centos/ProColombia/modelexec.sh /home/centos/
              sudo chown root:root /home/centos/modelexec.sh
