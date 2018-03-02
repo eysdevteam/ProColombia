@@ -67,7 +67,6 @@ val rdd3 = sc.textFile("/home/centos/Datos/Vicepr/seccion3.txt")
 val rdd4 = sc.textFile("/home/centos/Datos/Vicepr/seccion4.txt")
 
 
-
 val Obs1RDD = parseRDD1(rdd1).map(parseObs1)
 val Obs2RDD = parseRDD2(rdd2).map(parseObs2)
 val Obs3RDD = parseRDD3(rdd3).map(parseObs3)
@@ -266,6 +265,6 @@ val file = fs.globStatus(new Path("/var/www/html/DashboardProc/web/Vicepr/donut/
 fs.rename(new Path("/var/www/html/DashboardProc/web/Vicepr/donut/"+file), new Path("/var/www/html/DashboardProc/web/Vicepr/donut/donut.json"));
 
 
-System.exit(0) 
+//System.exit(0) 
 
 

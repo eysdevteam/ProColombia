@@ -24,6 +24,9 @@ val df2 = spark.read.json("/var/www/html/DashboardProc/web/Jefes/bullet/bullet.j
 val df3 = spark.read.json("/var/www/html/DashboardProc/web/Nacionales/bullet/bullet.json") 
 val df4 = spark.read.json("/var/www/html/DashboardProc/web/Internacionales/bullet/bullet.json")
 
+val dfB = df1.join(df2,"secccion").join(df3,"seccion").join(df4,"seccion")
+
+
 
 //Export data donuts graph
 
@@ -31,5 +34,8 @@ val df5 = spark.read.json("/var/www/html/DashboardProc/web/Vicepr/donut/donut.js
 val df6 = spark.read.json("/var/www/html/DashboardProc/web/Jefes/donut/donut.json")
 val df7 = spark.read.json("/var/www/html/DashboardProc/web/Nacionales/donut/donut.json") 
 val df8 = spark.read.json("/var/www/html/DashboardProc/web/Internacionales/donut/donut.json")
+
+val dfD = df5.join(df6,"secccion").join(df7,"seccion").join(df8,"seccion")
+
 
 
