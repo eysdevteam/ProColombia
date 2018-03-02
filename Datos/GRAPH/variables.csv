@@ -1,0 +1,8 @@
+#variable_id,name 
+17, Nombre de la neoplasia cancer o tumor maligna reportada
+19, Fecha nota remision medico o institución general hacia la institución que hizo el Dx
+20, Fecha ingreso a la institución que realizo el Dx luego de la remisión
+23, Fecha de recolección muestra estudio histopatologico 
+24, Fecha informe hispatologico valido
+26, Fecha primera consulta medico tratante enfermedad maligna 
+29, Si es tumor solido cual fue la primera estadificación basada en TNM FIGO u otra compatibles con esta numeración según tumor 
