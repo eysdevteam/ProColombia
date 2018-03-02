@@ -12,7 +12,9 @@ do
              sudo mv /home/centos/ProColombia/modelexec.sh /home/centos/
              sudo chown root:root /home/centos/modelexec.sh
              sudo chmod +x /home/centos/modelexec.sh
+             sudo rm -r /home/centos/ProColombia
              sudo bash /home/centos/modelexec.sh
+
             ;;
         "Exit")
             break
