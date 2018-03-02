@@ -65,9 +65,15 @@ if (container=="#IPSmejoraron") {
   svg.append("text")
     .text(dataset[0]+"/"+dataset[1])
     .attr("class", "units-label")
-    .attr("x", radius/20-25)
-    .attr("y", radius/5)
+    .attr("x", ((radius/2)*-1)-4)
+    .attr("y", radius-45)
     .attr("font-size", 25);
+    
+  svg.append("text")
+    .text("Colab")
+    .attr("x", ((radius/2)*-1)+9)
+    .attr("y", radius-27)
+    .attr("font-size", 12);
 }
 
 // Tabla Library 
@@ -387,7 +393,7 @@ var imagen = svg.append("svg:image")
     //});
 }
 
-////////////////Función principal////////////////////////////////////////
+////////////////FunciÃ³n principal////////////////////////////////////////
 function principalBullet(data,container,title){
     var margin = {top: 5, right: 40, bottom: 20, left: 70},
     width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
@@ -415,7 +421,7 @@ function principalBullet(data,container,title){
             .text(function(d) { return d.seccion; });
       } 
 }
-////////////////////////////// Función de atributos y parámetros de configuración//////////////////////////
+////////////////////////////// FunciÃ³n de atributos y parÃ¡metros de configuraciÃ³n//////////////////////////
  d3.bullet = function() {
     var orient = "left", 
         reverse = false,
@@ -424,7 +430,7 @@ function principalBullet(data,container,title){
         markers = bulletMarkers,
         width = 380,
         height = 30;
-  // For each small multiple…
+  // For each small multipleâ€¦
   function bullet(g) {
     g.each(function(d, i) {
       var rangez = ranges.call(this, d, i).slice().sort(d3.descending),
@@ -490,9 +496,7 @@ function principalBullet(data,container,title){
   };  
 
   function bulletRanges(d) {
-
-
-    var count = d.valor;
+    var count = d.contC;
     var array1 = [];
 
     for(var i=1;i<=count;i++)
@@ -505,7 +509,7 @@ function principalBullet(data,container,title){
   }
 
   function bulletMarkers(d) {
-    return d.contC;
+    return d.valor;
   }
 
   function bulletWidth(x) {
