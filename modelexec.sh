@@ -9,9 +9,8 @@ if
 	  echo "Copiando proyecto a instancia"      
       sudo scp -oStrictHostKeyChecking=no -i /home/ed/cluster_test_biba.pem  /home/centos/ProColombia/* centos@$IP:/home/centos
       echo "Conectado Mediante SSH - Moviendo Archivos Necesarios para Ejecución"
-      sudo ssh -oStrictHostKeyChecking=no -i /home/ed/cluster_test_biba.pem centos@$IP "sudo mv /home/centos/ProColombia/DashboardProc /var/www/html/"
-      sudo ssh -oStrictHostKeyChecking=no -i /home/ed/cluster_test_biba.pem centos@$IP "sudo mv /home/centos/ProColombia/model/* /home/centos/"  
-      sudo ssh -oStrictHostKeyChecking=no -i /home/ed/cluster_test_biba.pem centos@$IP "sudo mv /home/centos/model/model.sh /home/centos/"    
+      sudo ssh -oStrictHostKeyChecking=no -i /home/ed/cluster_test_biba.pem centos@$IP "sudo mv /home/centos/ProColombia/DashboardProc /var/www/html/"  
+      sudo ssh -oStrictHostKeyChecking=no -i /home/ed/cluster_test_biba.pem centos@$IP "sudo mv /home/centos/datos/model.sh /home/centos/"    
       echo "Permisos de carpeta"
       sudo ssh -oStrictHostKeyChecking=no -i /home/ed/cluster_test_biba.pem centos@$IP "chown apache:apache -R /var/www/html/DashboardProc"     
       sudo ssh -oStrictHostKeyChecking=no -i /home/ed/cluster_test_biba.pem centos@$IP "chmod 777 -R /var/www/html/DashboardProc"     
