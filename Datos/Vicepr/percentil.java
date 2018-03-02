@@ -259,12 +259,12 @@ fs.rename(new Path("/var/www/html/DashboardProc/web/Vicepr/bullet/"+file), new P
 
 //Export data donuts graph
 
-val dfK = k.toDF("Colaboradores").withColumn("total",lit(20))
+val dfK = k.toDF("Colaboradores").withColumn("total",lit(50))
 dfK.coalesce(1).write.mode("overwrite").format("com.databricks.spark.csv").option("header", "FALSE").save("/var/www/html/DashboardProc/web/Vicepr/donut/")
 val file = fs.globStatus(new Path("/var/www/html/DashboardProc/web/Vicepr/donut/part*"))(0).getPath().getName();
 fs.rename(new Path("/var/www/html/DashboardProc/web/Vicepr/donut/"+file), new Path("/var/www/html/DashboardProc/web/Vicepr/donut/donut.json"));
 
 
-//System.exit(0) 
+System.exit(0) 
 
 

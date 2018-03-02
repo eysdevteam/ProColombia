@@ -257,7 +257,7 @@ fs.rename(new Path("/var/www/html/DashboardProc/web/Nacionales/bullet/"+file), n
 
 //Export data donuts graph
 
-val dfK = k.toDF("Colaboradores").withColumn("total",lit(20))
+val dfK = k.toDF("Colaboradores").withColumn("total",lit(30))
 dfK.coalesce(1).write.mode("overwrite").format("com.databricks.spark.csv").option("header", "FALSE").save("/var/www/html/DashboardProc/web/Nacionales/donut/")
 val file = fs.globStatus(new Path("/var/www/html/DashboardProc/web/Nacionales/donut/part*"))(0).getPath().getName();
 fs.rename(new Path("/var/www/html/DashboardProc/web/Nacionales/donut/"+file), new Path("/var/www/html/DashboardProc/web/Nacionales/donut/donut.json"));
