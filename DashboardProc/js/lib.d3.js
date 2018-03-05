@@ -28,11 +28,12 @@ function table(dataset, columnas, container){
 }
 
 // Donut Library
-function donut(dataset, container) {
+function donut(indi, relleno, container) {
+   
   var width = 100;
       height = 150,
       radius = Math.min(width, height) / 2;
-     
+        
   var color  = d3.scale.ordinal()
       .range(["rgb(165, 0, 38)","#EBE8E8"]);
 
@@ -50,17 +51,29 @@ function donut(dataset, container) {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
   var path = svg.selectAll("path")
-      .data(pie(dataset))
+      .data(pie(relleno))
       .enter().append("path")
-      .attr("fill", function(d, i) { return color(d); })
+      .attr("fill", function(d,i) { return color(i); })
       .attr("d", arc);
-
-  svg.append("text")
-    .text(dataset[0]+"/"+dataset[1])
+      
+  if(indi[1] < 99) {
+    svg.append("text")
+    .text(indi[0]+"/"+indi[1])
     .attr("class", "units-label")
     .attr("x", ((radius/2)*-1)-4)
     .attr("y", radius-45)
-    .attr("font-size", 25);
+    .attr("font-size", 25);  
+  }
+  else{
+    svg.append("text")
+    .text(indi[0]+"/"+indi[1])
+    .attr("class", "units-label")
+    .attr("x", ((radius/2)*-1)-9)
+    .attr("y", radius-45)
+    .attr("font-size", 23);
+  }    
+
+  
     
   svg.append("text")
     .text("Colab")
@@ -407,7 +420,36 @@ function principalBullet(data,container,title){
       if(title) {
         var title = svg.append("g")
           .style("text-anchor", "end")
-          .attr("transform", "translate(-6," + height / 2 + ")");
+          .attr("transform", "translate(-6," + height / 2 + ") ");
+
+        title.append("text")
+            .attr("class", "title")
+            .text(function(d) { return d.seccion; });
+      } 
+}
+
+////////////////FunciÃƒÂ³n principal////////////////////////////////////////
+function principalBullet2(data,container,title){
+    var margin = {top: 5, right: 100, bottom: 20, left: 10},
+    width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
+    height = 25;
+    var chart = d3.bullet()
+        .width(width)
+        .height(height);
+      var svg = d3.select(container).selectAll("svg")
+          .data(data)
+        .enter().append("svg")
+          .attr("class", "bullet")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top)
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")        
+          .call(chart);
+
+      if(title) {
+        var title = svg.append("g")
+          .style("text-anchor", "end")
+          .attr("transform", "translate(-6," + height / 2 + ") ");
 
         title.append("text")
             .attr("class", "title")
