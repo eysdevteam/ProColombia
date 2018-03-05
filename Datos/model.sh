@@ -1,5 +1,6 @@
 #!/bin/sh
 
+SPARK_HOME='/home/centos/spark-2.2.0-bin-hadoop2.7'
 
 sudo $SPARK_HOME/bin/spark-shell -i /home/centos/Datos/Vicepr/percentil.java
 sudo $SPARK_HOME/bin/spark-shell -i /home/centos/Datos/Jefes/percentil.java
