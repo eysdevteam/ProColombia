@@ -44,3 +44,14 @@
 .active{
 	border-bottom: solid 2px rgb(165, 0, 38); 
 }
+
+.axis text {
+  font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #e2dcdc;
+  shape-rendering: crispEdges;
+}

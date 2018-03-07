@@ -424,6 +424,24 @@ function principalBullet(data,container,title, ind){
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")        
           .call(chart);
+      
+      var ticks = svg.attr("class", function(d,i){
+            datosTick =  "data"+i;
+            return datosTick;});
+
+      var x = d3.scale.ordinal()
+          .domain(["Inicial", "Repetible", "Definido", "Administrado", "Optimizado"])
+          .rangePoints([width/10, width- width/10]);
+
+      var xAxis = d3.svg.axis()
+          .scale(x)
+          .orient("bottom");
+
+          for (var i = 0 ; i < data.length; i++) {suma = i}
+      var tick = d3.select(".data"+suma).append("g")
+          .attr("transform", "translate(" + 0 + "," + height+ ")")
+          .attr("class", "x axis")
+          .call(xAxis);
 
       if(title) {
         var title = svg.append("g")
