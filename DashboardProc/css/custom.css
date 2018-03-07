@@ -41,3 +41,6 @@
 	font-size: 15px;
 	/*font-weight: bold;*/
 }
+.active{
+	border-bottom: solid 2px rgb(165, 0, 38); 
+}

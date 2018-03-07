@@ -400,10 +400,18 @@ var imagen = svg.append("svg:image")
 }
 
 ////////////////FunciÃƒÂ³n principal////////////////////////////////////////
-function principalBullet(data,container,title){
-    var margin = {top: 5, right: 40, bottom: 20, left: 70},
-    width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
-    height = 25;
+function principalBullet(data,container,title, ind){
+    if(ind){
+      var margin = {top: 5, right: 20, bottom: 20, left: 0},
+      width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
+      height = 25;
+    }
+    else{
+      var margin = {top: 5, right: 40, bottom: 20, left: 70},
+      width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
+      height = 25;
+    }
+    
     var chart = d3.bullet()
         .width(width)
         .height(height);
@@ -469,7 +477,7 @@ function principalBullet2(data,container,title){
   function bullet(g) {
     g.each(function(d, i) {
       var rangez = ranges.call(this, d, i).slice().sort(d3.descending),
-        markerz = markers.call(this, d, i).slice().sort(d3.descending),
+        markerz = markers.call(this, d, i).slice(),
         g = d3.select(this);
       // Compute the new x-scale.
       var x1 = d3.scale.linear()
@@ -488,21 +496,43 @@ function principalBullet2(data,container,title){
           .attr("x", reverse ? x1 : 0)
           .attr("width", w1)
           .attr("height", height);
-      // Update the marker lines.
-      var marker = g.selectAll("line.marker")
-        .data(markerz);
-      
-        marker.enter().append("circle")
-          .attr("class", "marker")
-          .attr("cx", x1(1.268*markerz-(1/2)))
-          .attr("cy", height / 2.15)
-          .attr("r",4.5);
-      
-        marker.on("mouseover",function(d){
-        marker.attr("r", 10);});
 
-        marker.on("mouseout", function(d){
-        marker.attr("r",4.5);})
+      if(ind){
+          for (var i = 0; i <= markerz.length - 1 ; i++) {
+              valores = [markerz[i]];
+              var marker = g.selectAll("line.marker")
+              .data(valores);
+                
+              console.log(valores)  
+              marker.enter().append("text")
+               .attr("class", "marker")
+               .attr("x", x1((i*1.3)+1/2))
+               .attr("y", height/1.6)
+               .style("font-size", 11)
+               .style("font-weight", 100)
+               .text(function(d,i){return d;})    
+               .attr("color", "white");
+          }
+           
+      }
+
+      else{
+        // Update the marker lines.
+        var marker = g.selectAll("line.marker")
+          .data(markerz);
+        
+          marker.enter().append("circle")
+            .attr("class", "marker")
+            .attr("cx", x1(1.268*markerz-(1/2)))
+            .attr("cy", height / 2.15)
+            .attr("r",4.5);
+        
+          marker.on("mouseover",function(d){
+          marker.attr("r", 10);});
+
+          marker.on("mouseout", function(d){
+          marker.attr("r",4.5);})
+      }
     });
   }
   // ranges (bad, satisfactory, good)
