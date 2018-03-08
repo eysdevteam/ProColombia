@@ -25,6 +25,11 @@
 .bullet .range.s2 { fill: #c2c2d6; }
 .bullet .range.s3 { fill: #d1d1e0; }
 .bullet .range.s4 { fill: #e0e0eb; }
+.bullet .range.m4 { fill: #FFECB3; }
+.bullet .range.m3 { fill: #FFE082; }
+.bullet .range.m2 { fill: #FFD54F; }
+.bullet .range.m1 { fill: #FFCA28; }
+.bullet .range.m0 { fill: #FFC107; }
 .bullet .range.s0:hover{ transform: scale(1.01); }
 .bullet .range.s1:hover{ transform: scale(1.01); }
 .bullet .range.s2:hover{ transform: scale(1.01); }

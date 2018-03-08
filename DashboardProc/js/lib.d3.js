@@ -544,25 +544,24 @@ function principalBullet2(data,container,title){
         .range(reverse ? [width, 0] : [0, width]);
       // Derive width-scales from the x-scales.
       w1 = bulletWidth(x1);
-      // Update the range rects.
-      var range = g.selectAll("rect.range")
+      
+        if(ind){
+        // Update the range rects.
+        var range = g.selectAll("rect.range")
         .data(rangez);
-      // Rect categories         
+        // Rect categories         
         range.enter().append("rect")
-          .attr("class", function(d, i) { return "range s" + i; })
+          .attr("class", function(d, i) { return "range m" + i; })
           .transition()
           .duration(duration)
           .attr("x", reverse ? x1 : 0)
           .attr("width", w1)
           .attr("height", height);
 
-      if(ind){
           for (var i = 0; i <= markerz.length - 1 ; i++) {
               valores = [markerz[i]];
               var marker = g.selectAll("line.marker")
-              .data(valores);
-                
-              console.log(valores)  
+              .data(valores);   
               marker.enter().append("text")
                .attr("class", "marker")
                .attr("x", x1((i*1.3)+1/2))
@@ -572,13 +571,22 @@ function principalBullet2(data,container,title){
                .text(function(d,i){return d;})    
                .attr("color", "white");
           }
-           
-      }
-
-      else{
+        }
+        else{
+        // Update the range rects.
+          var range = g.selectAll("rect.range")
+            .data(rangez);
+      // Rect categories         
+          range.enter().append("rect")
+            .attr("class", function(d, i) { return "range s" + i; })
+            .transition()
+            .duration(duration)
+            .attr("x", reverse ? x1 : 0)
+            .attr("width", w1)
+            .attr("height", height);
         // Update the marker lines.
-        var marker = g.selectAll("line.marker")
-          .data(markerz);
+          var marker = g.selectAll("line.marker")
+            .data(markerz);
         
           marker.enter().append("circle")
             .attr("class", "marker")
@@ -591,7 +599,7 @@ function principalBullet2(data,container,title){
 
           marker.on("mouseout", function(d){
           marker.attr("r",4.5);})
-      }
+          }
     });
   }
   // ranges (bad, satisfactory, good)
