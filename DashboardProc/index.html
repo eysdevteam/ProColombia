@@ -44,6 +44,9 @@
                          </div>
                          <div class="row no gutters ml-1 mr-1 ">
                               <div class="col-12 rounded bg-white" ng-controller="TabsController as tabs">
+                                   <div class="title row no-gutters title">
+                                        Estado de Madurez por Pregunta
+                                   </div>
                                    <nav class="navbar navbar-expand-sm navbar-fixed-top justify-content-center">
                                      <!-- Links -->
                                         <ul class="navbar-nav nav-tabs nav-justified">   
@@ -170,6 +173,24 @@
                               <div class="col-3 text-center">
                                    <div ng-controller="ACI_donut" id="ACI_donut"></div>
                               </div>                                   
+                         </div>
+                    </div>
+               </div>
+               <!-- Button trigger modal -->
+               <div class="container1">
+                    
+               <!-- Modal -->
+                    <div class="modal fade" id="modalBullet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                         <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                   <div class="modal-header">
+                                        <h5 class="modal-title"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                        </button>
+                                   </div>
+                                   <div class="modal_body"></div>
+                              </div>
                          </div>
                     </div>
                </div>

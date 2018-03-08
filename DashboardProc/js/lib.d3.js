@@ -401,6 +401,7 @@ var imagen = svg.append("svg:image")
 
 ////////////////FunciÃƒÂ³n principal////////////////////////////////////////
 function principalBullet(data,container,title, ind){
+   console.log(data);
    if(ind){
       var margin = {top: 5, right: 20, bottom: 20, left: 0},
       width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
@@ -458,7 +459,7 @@ if(ind){
         }
         else {
           var col = tabla.append("div").attr("class","col-sm-2 mr-2 ml-0 pl-0 pr-0").style("text-align","center");
-          col.append("text").text(estados[i]).style("font-size","9px").style("line-height","1px");
+          col.append("text").text(estados[i]).style("font-size","8px").style("line-height","1px");
         }
         }  
 }
@@ -561,15 +562,24 @@ function principalBullet2(data,container,title){
           for (var i = 0; i <= markerz.length - 1 ; i++) {
               valores = [markerz[i]];
               var marker = g.selectAll("line.marker")
-              .data(valores);   
+              .data(valores);
+              //.data(data)
+
               marker.enter().append("text")
                .attr("class", "marker")
                .attr("x", x1((i*1.3)+1/2))
                .attr("y", height/1.6)
                .style("font-size", 11)
                .style("font-weight", 100)
-               .text(function(d,i){return d;})    
-               .attr("color", "white");
+               .text(function(d,i){return d;})
+               .style("cursor", "pointer")    
+               .on("click", function(d){
+                  var mark = d3.select(this)
+                    .attr("data-toggle", "modal")
+                    .attr("data-target", "#modalBullet");
+                    //.text(function(d){ d })
+
+               });
           }
         }
         else{
@@ -650,5 +660,16 @@ function principalBullet2(data,container,title){
     return function(d) {
     return Math.abs(x(d)*1.3 - x0);
   };
+}
+
+function modalQuestions(data){
+  var dataPr= data;
+  //var dataPr= dataPr[i];
+  console.log(dataPr);
+  var table = d3.select(".modal_body").append("table").attr("class","table");
+  var title = d3.select(".modal_").append("text").text(dataPr.seccion);
+  var row = table.selectAll("tr").data(dataPr).enter().append("tr").attr("class",function(d,i){ return "Fila"+i;});
+    row.append("th").text(function(d,i){return i+1;});
+    row.append("td").text(function(d){return d;});
 }
 
