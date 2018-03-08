@@ -401,7 +401,7 @@ var imagen = svg.append("svg:image")
 
 ////////////////FunciÃƒÂ³n principal////////////////////////////////////////
 function principalBullet(data,container,title, ind){
-    if(ind){
+   if(ind){
       var margin = {top: 5, right: 20, bottom: 20, left: 0},
       width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
       height = 25;
@@ -411,7 +411,7 @@ function principalBullet(data,container,title, ind){
       width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
       height = 25;
     }
-    
+
     var chart = d3.bullet()
         .width(width)
         .height(height);
@@ -424,39 +424,66 @@ function principalBullet(data,container,title, ind){
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")        
           .call(chart);
-      
-      var ticks = svg.attr("class", function(d,i){
-            datosTick =  "data"+i;
-            return datosTick;});
 
-      var x = d3.scale.ordinal()
-          .domain(["Inicial", "Repetible", "Definido", "Administrado", "Optimizado"])
-          .rangePoints([width/10, width- width/10]);
-
-      var xAxis = d3.svg.axis()
-          .scale(x)
-          .orient("bottom");
-
-          for (var i = 0 ; i < data.length; i++) {suma = i}
-      var tick = d3.select(".data"+suma).append("g")
-          .attr("transform", "translate(" + 0 + "," + height+ ")")
-          .attr("class", "x axis")
-          .call(xAxis);
-
+       
       if(title) {
+         var tabla = d3.select(container).append("div").attr("class","row titles pl-4 mb-1 ml-5 ");
+        estados = ["Inicial (I)", "Repetible (R)", "Definido (D)", "Administrado (A)", "Optimizado (O)"]
+        for (var i = 0 ; i <= estados.length; i++) {
+          if (i == estados.length){
+          var col = tabla.append("div").attr("class","col-sm-0 ");
+          col.append("text").text(estados[i]);
+        }
+        else {
+          var col = tabla.append("div").attr("class","col-sm-2 mr-3 ml-1 pl-3 pr-1");
+          col.append("text").text(estados[i]);
+
+        }
+        }     
         var title = svg.append("g")
           .style("text-anchor", "end")
           .attr("transform", "translate(-6," + height / 2 + ") ");
-
-        title.append("text")
+          title.append("text")
             .attr("class", "title")
             .text(function(d) { return d.seccion; });
       } 
+      else{
+if(ind){
+      var tabla = d3.select(container).append("div").attr("class","row titles pl-0 mb-0 ml-0 ");
+        estados = ["Total desacuerdo","En desacuerdo","Neutral","De acuerdo","Total acuerdo"]
+        for (var i = 0 ; i <= estados.length; i++) {
+          if (i == estados.length){
+          var col = tabla.append("div").attr("class","col-sm-0 ");
+          col.append("text").text(estados[i]);
+        }
+        else {
+          var col = tabla.append("div").attr("class","col-sm-2 mr-2 ml-0 pl-0 pr-0").style("text-align","center");
+          col.append("text").text(estados[i]).style("font-size","9px").style("line-height","1px");
+        }
+        }  
+}
+else{
+ var tabla = d3.select(container).append("div").attr("class","row titles pl-4 ml-4");
+        estados = ["(I)", "(R)", "(D)", "(A)", "(O)"]
+        for (var i = 0 ; i <= estados.length; i++) {
+          if (i == estados.length){
+          var col = tabla.append("div").attr("class","col-sm-0 ml-1");
+          col.append("text").text(estados[i]);
+        }
+        else {
+          var col = tabla.append("div").attr("class","col-sm-1 ml-4 pl-4 pr-3");
+          col.append("text").text(estados[i]);
+        }
+        }     
+      }
+}
+
+
 }
 
 ////////////////FunciÃƒÂ³n principal////////////////////////////////////////
 function principalBullet2(data,container,title){
-    var margin = {top: 5, right: 100, bottom: 20, left: 10},
+        var margin = {top: 5, right: 100, bottom: 20, left: 10},
     width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
     height = 25;
     var chart = d3.bullet()
@@ -481,6 +508,20 @@ function principalBullet2(data,container,title){
             .attr("class", "title")
             .text(function(d) { return d.seccion; });
       } 
+
+       var tabla = d3.select(container).append("div").attr("class","row titles pl-0 ml-0");
+        estados = ["(I)", "(R)", "(D)", "(A)", "(O)"]
+        for (var i = 0 ; i <= estados.length; i++) {
+          if (i == estados.length){
+          var col = tabla.append("div").attr("class","col-sm-0 ml-2");
+          col.append("text").text(estados[i]);
+        }
+        else {
+          var col = tabla.append("div").attr("class","col-sm-1 ml-3 pl-4 pr-4");
+          col.append("text").text(estados[i]);
+
+        }
+        } 
 }
 ////////////////////////////// FunciÃƒÂ³n de atributos y parÃƒÂ¡metros de configuraciÃƒÂ³n//////////////////////////
  d3.bullet = function() {
