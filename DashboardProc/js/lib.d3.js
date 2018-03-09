@@ -401,7 +401,6 @@ var imagen = svg.append("svg:image")
 
 ////////////////FunciÃƒÂ³n principal////////////////////////////////////////
 function principalBullet(data,container,title, ind){
-   console.log(data);
    if(ind){
       var margin = {top: 5, right: 20, bottom: 20, left: 0},
       width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
@@ -522,7 +521,7 @@ function principalBullet2(data,container,title){
           col.append("text").text(estados[i]);
 
         }
-        } 
+      } 
 }
 ////////////////////////////// FunciÃƒÂ³n de atributos y parÃƒÂ¡metros de configuraciÃƒÂ³n//////////////////////////
  d3.bullet = function() {
@@ -531,6 +530,7 @@ function principalBullet2(data,container,title){
         duration = 1000,
         ranges = bulletRanges,
         markers = bulletMarkers,
+        questions = bulletQuestions,
         width = 380,
         height = 30;
   // For each small multipleÃ¢â‚¬Â¦
@@ -538,14 +538,16 @@ function principalBullet2(data,container,title){
     g.each(function(d, i) {
       var rangez = ranges.call(this, d, i).slice().sort(d3.descending),
         markerz = markers.call(this, d, i).slice(),
+        questionz = questions.call(this, d, i),
         g = d3.select(this);
+
       // Compute the new x-scale.
       var x1 = d3.scale.linear()
         .domain([0, Math.max(rangez[0], markerz[0], 6)])
         .range(reverse ? [width, 0] : [0, width]);
       // Derive width-scales from the x-scales.
       w1 = bulletWidth(x1);
-      
+
         if(ind){
         // Update the range rects.
         var range = g.selectAll("rect.range")
@@ -560,10 +562,10 @@ function principalBullet2(data,container,title){
           .attr("height", height);
 
           for (var i = 0; i <= markerz.length - 1 ; i++) {
-              valores = [markerz[i]];
+              valores = [questionz.preguntas[i]];
+              console.log(valores);
               var marker = g.selectAll("line.marker")
               .data(valores);
-              //.data(data)
 
               marker.enter().append("text")
                .attr("class", "marker")
@@ -571,14 +573,30 @@ function principalBullet2(data,container,title){
                .attr("y", height/1.6)
                .style("font-size", 11)
                .style("font-weight", 100)
-               .text(function(d,i){return d;})
+               .text(function(d,i){return d.valor;})
                .style("cursor", "pointer")    
                .on("click", function(d){
                   var mark = d3.select(this)
                     .attr("data-toggle", "modal")
                     .attr("data-target", "#modalBullet");
-                    //.text(function(d){ d })
 
+                  d3.selectAll(".trModal").remove();
+                  d3.selectAll("tdModal").remove();
+
+                  let modal_title = d3.selectAll(".modal-title-bullet")
+                  modal_title.text(d.seccion);
+                  d3.select(this).each(function(d) {
+                  d.preguntas.forEach((preguntas, index) => {
+                    d3.selectAll(".modal-bullet")
+                      .append("tr")
+                      .attr("class", "trModal")
+                      .append("td")
+                      .attr("class", "tdModal")
+                      .text(preguntas)
+                      .style("border-bottom","1px solid #EBE8E8")
+                      .style("font-size","1.2em");
+                    })
+                  })
                });
           }
         }
@@ -612,6 +630,7 @@ function principalBullet2(data,container,title){
           }
     });
   }
+  
   // ranges (bad, satisfactory, good)
   bullet.ranges = function(x) {
     if (!arguments.length) return ranges;
@@ -622,6 +641,13 @@ function principalBullet2(data,container,title){
   bullet.markers = function(x) {
     if (!arguments.length) return markers;
     markers = x;
+    return bullet;
+  };
+
+  // ranges (bad, satisfactory, good)
+  bullet.questions = function(x) {
+    if (!arguments.length) return questions;
+    questions = x;
     return bullet;
   };
   bullet.width = function(x) {
@@ -650,6 +676,10 @@ function principalBullet2(data,container,title){
     return rango;
   }
 
+  function bulletQuestions(d) {
+    return d;
+  }
+
   function bulletMarkers(d) {
     return d.valor;
   }
@@ -667,7 +697,7 @@ function modalQuestions(data){
   //var dataPr= dataPr[i];
   console.log(dataPr);
   var table = d3.select(".modal_body").append("table").attr("class","table");
-  var title = d3.select(".modal_").append("text").text(dataPr.seccion);
+  var title = d3.select(".modal_title").append("text").text(dataPr.seccion);
   var row = table.selectAll("tr").data(dataPr).enter().append("tr").attr("class",function(d,i){ return "Fila"+i;});
     row.append("th").text(function(d,i){return i+1;});
     row.append("td").text(function(d){return d;});
