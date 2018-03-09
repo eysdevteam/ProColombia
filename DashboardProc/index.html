@@ -10,14 +10,14 @@
           <!-- Import D3.js -->
           <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
           <!-- Import Bootstrap -->
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
           <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
           <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">  
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
           <!-- Import AngularJS -->
           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
-          <!-- Import JQuery -->
-          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
           <!-- Import AngularJS Module -->
           <script src="js/app.js"></script>
           <script src="js/directives.js"></script>
@@ -42,13 +42,36 @@
                                    <img src="PRO_PRINCIPAL_HORZ_PNG.png" height="41px"></img>
                               </div>
                          </div>
-                         <div class="row no gutters ml-1 mr-1">
-                              <div class="col-12 rounded bg-white text-center ">
-                                   <img src="Directorio_1.png" height="120px"></img>
+                         <div class="row no gutters ml-1 mr-1 ">
+                              <div class="col-12 rounded bg-white" ng-controller="TabsController as tabs">
+                                   <div class="title row no-gutters title">
+                                        Estado de Madurez por Pregunta
+                                   </div>
+                                   <nav class="navbar navbar-expand-sm navbar-fixed-top justify-content-center">
+                                     <!-- Links -->
+                                        <ul class="navbar-nav nav-tabs nav-justified">   
+                                             <li class="nav-item" ng-class="{active:tabs.tab===1}">
+                                                 <a ng-click="tabs.selectTab(1)" class="btn">Sección 1</a>
+                                             </li>
+                                             <li class="nav-item" ng-class="{active:tabs.tab===2}">
+                                                  <a ng-click="tabs.selectTab(2)" class="btn">Sección 2</a>
+                                             </li>
+                                             <li class="nav-item" ng-class="{active:tabs.tab===3}">
+                                                  <a ng-click="tabs.selectTab(3)" class="btn">Sección 3</a>
+                                             </li>
+                                        </ul>
+                                   </nav>
+                                   <div class="row no gutters ml-1 mr-1">
+                                        <div class="col-12 rounded bg-white">
+                                             <div ng-controller="Q_S1" id="Q_S1" ng-show="tabs.tab===1"></div>
+                                             <div ng-controller="Q_S2" id="Q_S2" ng-show="tabs.tab===2"></div>
+                                             <div ng-controller="Q_S3" id="Q_S3" ng-show="tabs.tab===3"></div>
+                                        </div>
+                                   </div>
                               </div>
                          </div>                         
                     </div>
-
+                    
                     <div class="col-md-9 mt-1 pl-1 pr-1">
                          <div class="rounded bg-white">
                               <div class="title row no-gutters title_main">
@@ -83,7 +106,7 @@
                               </div>                                   
                          </div>
                     </div>
-                    <div class="col-2 mt-1 pl-5 pt-4 bg-white d-flex justify-content-center font">
+                    <div class="col-2 mt-1 pt-4 bg-white d-flex justify-content-center font">
                          <table>
                               <tbody class="pt-1">
                                    <tr><td class="pt-2">Sección 1</td></tr>
@@ -115,7 +138,7 @@
                     <div class="col-5 mt-1 pl-1 pr-1 bg-white rounded-left">
                          <div class="title row no-gutters">
                               <div class="col-12">
-                                 Asesores Comerciales (Nacionales)
+                                 Asesores Nacionales
                               </div> 
                          </div>
                          <div class="row no-gutters">
@@ -127,7 +150,7 @@
                               </div>                                   
                          </div>
                     </div>
-                    <div class="col-2 mt-1 pl-5 pt-4 bg-white d-flex justify-content-center font">
+                    <div class="col-2 mt-1 pt-4 bg-white d-flex justify-content-center font">
                          <table>
                               <tbody class="pt-1">
                                    <tr><td class="pt-2">Sección 1</td></tr>
@@ -140,7 +163,7 @@
                     <div class="col-5 mt-1 pl-1 pr-1 bg-white rounded-right">
                          <div class="title row no-gutters">
                               <div class="col-12 text-right">
-                                 Asesores Comerciales (Internacionales)
+                                 Asesores Internacionales
                               </div>
                          </div>
                          <div class="row no-gutters">
@@ -153,6 +176,24 @@
                          </div>
                     </div>
                </div>
+               <!-- Button trigger modal -->
+               <div class="container1">
+                    
+               <!-- Modal -->
+                    <div class="modal fade" id="modalBullet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                         <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                   <div class="modal-header">
+                                        <h5 class="modal-title"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                        </button>
+                                   </div>
+                                   <div class="modal_body"></div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
 
                <footer class="row no-gutters ml-2 mr-2 mt-1">
                     <div class="col-sm text-center bg-dark text-white pt-2 pb-2">
@@ -162,6 +203,7 @@
           </div>
 
           <script src="js/lib.d3.js"></script>
+
      </body>
 
 </html>

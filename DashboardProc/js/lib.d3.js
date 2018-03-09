@@ -28,11 +28,12 @@ function table(dataset, columnas, container){
 }
 
 // Donut Library
-function donut(dataset, container) {
+function donut(indi, relleno, container) {
+   
   var width = 100;
       height = 150,
       radius = Math.min(width, height) / 2;
-     
+        
   var color  = d3.scale.ordinal()
       .range(["rgb(165, 0, 38)","#EBE8E8"]);
 
@@ -50,17 +51,29 @@ function donut(dataset, container) {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
   var path = svg.selectAll("path")
-      .data(pie(dataset))
+      .data(pie(relleno))
       .enter().append("path")
-      .attr("fill", function(d, i) { return color(d); })
+      .attr("fill", function(d,i) { return color(i); })
       .attr("d", arc);
-
-  svg.append("text")
-    .text(dataset[0]+"/"+dataset[1])
+      
+  if(indi[1] < 99) {
+    svg.append("text")
+    .text(indi[0]+"/"+indi[1])
     .attr("class", "units-label")
     .attr("x", ((radius/2)*-1)-4)
     .attr("y", radius-45)
-    .attr("font-size", 25);
+    .attr("font-size", 25);  
+  }
+  else{
+    svg.append("text")
+    .text(indi[0]+"/"+indi[1])
+    .attr("class", "units-label")
+    .attr("x", ((radius/2)*-1)-9)
+    .attr("y", radius-45)
+    .attr("font-size", 23);
+  }    
+
+  
     
   svg.append("text")
     .text("Colab")
@@ -387,8 +400,91 @@ var imagen = svg.append("svg:image")
 }
 
 ////////////////FunciÃƒÂ³n principal////////////////////////////////////////
-function principalBullet(data,container,title){
-    var margin = {top: 5, right: 40, bottom: 20, left: 70},
+function principalBullet(data,container,title, ind){
+   console.log(data);
+   if(ind){
+      var margin = {top: 5, right: 20, bottom: 20, left: 0},
+      width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
+      height = 25;
+    }
+    else{
+      var margin = {top: 5, right: 40, bottom: 20, left: 70},
+      width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
+      height = 25;
+    }
+
+    var chart = d3.bullet()
+        .width(width)
+        .height(height);
+      var svg = d3.select(container).selectAll("svg")
+          .data(data)
+        .enter().append("svg")
+          .attr("class", "bullet")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top)
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")        
+          .call(chart);
+
+       
+      if(title) {
+         var tabla = d3.select(container).append("div").attr("class","row titles pl-4 mb-1 ml-5 ");
+        estados = ["Inicial (I)", "Repetible (R)", "Definido (D)", "Administrado (A)", "Optimizado (O)"]
+        for (var i = 0 ; i <= estados.length; i++) {
+          if (i == estados.length){
+          var col = tabla.append("div").attr("class","col-sm-0 ");
+          col.append("text").text(estados[i]);
+        }
+        else {
+          var col = tabla.append("div").attr("class","col-sm-2 mr-3 ml-1 pl-3 pr-1");
+          col.append("text").text(estados[i]);
+
+        }
+        }     
+        var title = svg.append("g")
+          .style("text-anchor", "end")
+          .attr("transform", "translate(-6," + height / 2 + ") ");
+          title.append("text")
+            .attr("class", "title")
+            .text(function(d) { return d.seccion; });
+      } 
+      else{
+if(ind){
+      var tabla = d3.select(container).append("div").attr("class","row titles pl-0 mb-0 ml-0 ");
+        estados = ["Total desacuerdo","En desacuerdo","Neutral","De acuerdo","Total acuerdo"]
+        for (var i = 0 ; i <= estados.length; i++) {
+          if (i == estados.length){
+          var col = tabla.append("div").attr("class","col-sm-0 ");
+          col.append("text").text(estados[i]);
+        }
+        else {
+          var col = tabla.append("div").attr("class","col-sm-2 mr-2 ml-0 pl-0 pr-0").style("text-align","center");
+          col.append("text").text(estados[i]).style("font-size","8px").style("line-height","1px");
+        }
+        }  
+}
+else{
+ var tabla = d3.select(container).append("div").attr("class","row titles pl-4 ml-4");
+        estados = ["(I)", "(R)", "(D)", "(A)", "(O)"]
+        for (var i = 0 ; i <= estados.length; i++) {
+          if (i == estados.length){
+          var col = tabla.append("div").attr("class","col-sm-0 ml-1");
+          col.append("text").text(estados[i]);
+        }
+        else {
+          var col = tabla.append("div").attr("class","col-sm-1 ml-4 pl-4 pr-3");
+          col.append("text").text(estados[i]);
+        }
+        }     
+      }
+}
+
+
+}
+
+////////////////FunciÃƒÂ³n principal////////////////////////////////////////
+function principalBullet2(data,container,title){
+        var margin = {top: 5, right: 100, bottom: 20, left: 10},
     width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
     height = 25;
     var chart = d3.bullet()
@@ -407,12 +503,26 @@ function principalBullet(data,container,title){
       if(title) {
         var title = svg.append("g")
           .style("text-anchor", "end")
-          .attr("transform", "translate(-6," + height / 2 + ")");
+          .attr("transform", "translate(-6," + height / 2 + ") ");
 
         title.append("text")
             .attr("class", "title")
             .text(function(d) { return d.seccion; });
       } 
+
+       var tabla = d3.select(container).append("div").attr("class","row titles pl-0 ml-0");
+        estados = ["(I)", "(R)", "(D)", "(A)", "(O)"]
+        for (var i = 0 ; i <= estados.length; i++) {
+          if (i == estados.length){
+          var col = tabla.append("div").attr("class","col-sm-0 ml-2");
+          col.append("text").text(estados[i]);
+        }
+        else {
+          var col = tabla.append("div").attr("class","col-sm-1 ml-3 pl-4 pr-4");
+          col.append("text").text(estados[i]);
+
+        }
+        } 
 }
 ////////////////////////////// FunciÃƒÂ³n de atributos y parÃƒÂ¡metros de configuraciÃƒÂ³n//////////////////////////
  d3.bullet = function() {
@@ -427,7 +537,7 @@ function principalBullet(data,container,title){
   function bullet(g) {
     g.each(function(d, i) {
       var rangez = ranges.call(this, d, i).slice().sort(d3.descending),
-        markerz = markers.call(this, d, i).slice().sort(d3.descending),
+        markerz = markers.call(this, d, i).slice(),
         g = d3.select(this);
       // Compute the new x-scale.
       var x1 = d3.scale.linear()
@@ -435,32 +545,71 @@ function principalBullet(data,container,title){
         .range(reverse ? [width, 0] : [0, width]);
       // Derive width-scales from the x-scales.
       w1 = bulletWidth(x1);
-      // Update the range rects.
-      var range = g.selectAll("rect.range")
+      
+        if(ind){
+        // Update the range rects.
+        var range = g.selectAll("rect.range")
         .data(rangez);
-      // Rect categories         
+        // Rect categories         
         range.enter().append("rect")
-          .attr("class", function(d, i) { return "range s" + i; })
+          .attr("class", function(d, i) { return "range m" + i; })
           .transition()
           .duration(duration)
           .attr("x", reverse ? x1 : 0)
           .attr("width", w1)
           .attr("height", height);
-      // Update the marker lines.
-      var marker = g.selectAll("line.marker")
-        .data(markerz);
-      
-        marker.enter().append("circle")
-          .attr("class", "marker")
-          .attr("cx", x1(1.268*markerz-(1/2)))
-          .attr("cy", height / 2.15)
-          .attr("r",4.5);
-      
-        marker.on("mouseover",function(d){
-        marker.attr("r", 10);});
 
-        marker.on("mouseout", function(d){
-        marker.attr("r",4.5);})
+          for (var i = 0; i <= markerz.length - 1 ; i++) {
+              valores = [markerz[i]];
+              var marker = g.selectAll("line.marker")
+              .data(valores);
+              //.data(data)
+
+              marker.enter().append("text")
+               .attr("class", "marker")
+               .attr("x", x1((i*1.3)+1/2))
+               .attr("y", height/1.6)
+               .style("font-size", 11)
+               .style("font-weight", 100)
+               .text(function(d,i){return d;})
+               .style("cursor", "pointer")    
+               .on("click", function(d){
+                  var mark = d3.select(this)
+                    .attr("data-toggle", "modal")
+                    .attr("data-target", "#modalBullet");
+                    //.text(function(d){ d })
+
+               });
+          }
+        }
+        else{
+        // Update the range rects.
+          var range = g.selectAll("rect.range")
+            .data(rangez);
+      // Rect categories         
+          range.enter().append("rect")
+            .attr("class", function(d, i) { return "range s" + i; })
+            .transition()
+            .duration(duration)
+            .attr("x", reverse ? x1 : 0)
+            .attr("width", w1)
+            .attr("height", height);
+        // Update the marker lines.
+          var marker = g.selectAll("line.marker")
+            .data(markerz);
+        
+          marker.enter().append("circle")
+            .attr("class", "marker")
+            .attr("cx", x1(1.268*markerz-(1/2)))
+            .attr("cy", height / 2.15)
+            .attr("r",4.5);
+        
+          marker.on("mouseover",function(d){
+          marker.attr("r", 10);});
+
+          marker.on("mouseout", function(d){
+          marker.attr("r",4.5);})
+          }
     });
   }
   // ranges (bad, satisfactory, good)
@@ -511,5 +660,16 @@ function principalBullet(data,container,title){
     return function(d) {
     return Math.abs(x(d)*1.3 - x0);
   };
+}
+
+function modalQuestions(data){
+  var dataPr= data;
+  //var dataPr= dataPr[i];
+  console.log(dataPr);
+  var table = d3.select(".modal_body").append("table").attr("class","table");
+  var title = d3.select(".modal_").append("text").text(dataPr.seccion);
+  var row = table.selectAll("tr").data(dataPr).enter().append("tr").attr("class",function(d,i){ return "Fila"+i;});
+    row.append("th").text(function(d,i){return i+1;});
+    row.append("td").text(function(d){return d;});
 }
 

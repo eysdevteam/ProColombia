@@ -10,7 +10,7 @@
 	padding-left:5px;
 	padding-right:5px;
 	font-family: 'Barlow Condensed', sans-serif;
-	font-size:15px;
+	font-size:17px;
 }
 
 .title_main{
@@ -20,11 +20,16 @@
 
 .bullet { font: 10px sans-serif; }
 .bullet .tick line { stroke: #666; stroke-width: .5px; }
-.bullet .range.s0 { fill: #a3a3c2; }
-.bullet .range.s1 { fill: #b3b3cc; }
-.bullet .range.s2 { fill: #c2c2d6; }
-.bullet .range.s3 { fill: #d1d1e0; }
-.bullet .range.s4 { fill: #e0e0eb; }
+.bullet .range.s0 { fill: #99B3E6/*#a3a3c2*/; }
+.bullet .range.s1 { fill: #ADC2EB/*#b3b3cc*/; }
+.bullet .range.s2 { fill: #C2D1F0/*#c2c2d6*/; }
+.bullet .range.s3 { fill: #D6E0F5/*#d1d1e0*/; }
+.bullet .range.s4 { fill: #EBF0FA/*#e0e0eb*/; }
+.bullet .range.m4 { fill: #FFF2E6; }
+.bullet .range.m3 { fill: #FFE5CC; }
+.bullet .range.m2 { fill: #FFD7B3; }
+.bullet .range.m1 { fill: #FFCA99; }
+.bullet .range.m0 { fill: #FFBD80; }
 .bullet .range.s0:hover{ transform: scale(1.01); }
 .bullet .range.s1:hover{ transform: scale(1.01); }
 .bullet .range.s2:hover{ transform: scale(1.01); }
@@ -40,4 +45,12 @@
 	font-family: 'Quicksand', sans-serif !important;
 	font-size: 15px;
 	/*font-weight: bold;*/
+}
+.active{
+	border-bottom: solid 2px rgb(165, 0, 38); 
+}
+
+.titles {
+    font-family: 'Quicksand', sans-serif !important;
+	font-size: 9px !important;
 }
