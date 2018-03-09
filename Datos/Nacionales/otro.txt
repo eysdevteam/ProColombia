@@ -1,0 +1,5 @@
+1,Total desacuerdo
+2,En desacuerdo
+3,Neutral
+4,De acuerdo
+5,Total acuerdo

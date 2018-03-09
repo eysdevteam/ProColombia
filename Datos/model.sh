@@ -1,12 +1,12 @@
 #!/bin/sh
 
-SPARK_HOME='/home/centos/spark-2.2.0-bin-hadoop2.7'
 
 sudo $SPARK_HOME/bin/spark-shell -i /home/centos/Datos/Vicepr/percentil.java
 sudo $SPARK_HOME/bin/spark-shell -i /home/centos/Datos/Jefes/percentil.java
 sudo $SPARK_HOME/bin/spark-shell -i /home/centos/Datos/Nacionales/percentil.java
 sudo $SPARK_HOME/bin/spark-shell -i /home/centos/Datos/Internacionales/percentil.java
 sudo $SPARK_HOME/bin/spark-shell -i /home/centos/Datos/General/percentil.java
+sudo $SPARK_HOME/bin/spark-shell -i /home/centos/Datos/Preguntas/percentil.java
 
 
 ##Donuts
@@ -62,8 +62,41 @@ sudo sed -i -e 's|,"con|],"con|g' /var/www/html/DashboardProc/web/General/bullet
 sudo sed -i '1s/^/[/' /var/www/html/DashboardProc/web/General/bullet/bullet.json
 sudo sed -i "\$a]" /var/www/html/DashboardProc/web/General/bullet/bullet.json
 
+##Preguntas
+
+sudo sed -i '$!s/$/,/'  /var/www/html/DashboardProc/web/Preguntas/seccion1/file1/data.json
+sudo sed -i '1s/^/[/'   /var/www/html/DashboardProc/web/Preguntas/seccion1/file1/data.json
+sudo sed -i "\$a]"      /var/www/html/DashboardProc/web/Preguntas/seccion1/file1/data.json
+sudo sed -i -e 's|collect_list(name)|preguntas|g' /var/www/html/DashboardProc/web/Preguntas/seccion1/file1/data.json
 
 
+sudo sed -i '$!s/$/,/'  /var/www/html/DashboardProc/web/Preguntas/seccion2/file1/data.json
+sudo sed -i '1s/^/[/'   /var/www/html/DashboardProc/web/Preguntas/seccion2/file1/data.json
+sudo sed -i "\$a]"      /var/www/html/DashboardProc/web/Preguntas/seccion2/file1/data.json
+sudo sed -i -e 's|collect_list(name)|preguntas|g' /var/www/html/DashboardProc/web/Preguntas/seccion2/file1/data.json
+
+sudo sed -i '$!s/$/,/'  /var/www/html/DashboardProc/web/Preguntas/seccion3/file1/data.json
+sudo sed -i '1s/^/[/'   /var/www/html/DashboardProc/web/Preguntas/seccion3/file1/data.json
+sudo sed -i "\$a]"      /var/www/html/DashboardProc/web/Preguntas/seccion3/file1/data.json
+sudo sed -i -e 's|collect_list(name)|preguntas|g' /var/www/html/DashboardProc/web/Preguntas/seccion3/file1/data.json
+
+
+
+sudo sed -i '$!s/$/,/'  /var/www/html/DashboardProc/web/Preguntas/seccion1/file2/data.json
+sudo sed -i '1s/^/[/'   /var/www/html/DashboardProc/web/Preguntas/seccion1/file2/data.json
+sudo sed -i "\$a]"      /var/www/html/DashboardProc/web/Preguntas/seccion1/file2/data.json
+sudo sed -i -e 's|collect_list(valor)|preguntas|g' /var/www/html/DashboardProc/web/Preguntas/seccion1/file2/data.json
+
+
+sudo sed -i '$!s/$/,/'  /var/www/html/DashboardProc/web/Preguntas/seccion2/file2/data.json
+sudo sed -i '1s/^/[/'   /var/www/html/DashboardProc/web/Preguntas/seccion2/file2/data.json
+sudo sed -i "\$a]"      /var/www/html/DashboardProc/web/Preguntas/seccion2/file2/data.json
+sudo sed -i -e 's|collect_list(valor)|preguntas|g' /var/www/html/DashboardProc/web/Preguntas/seccion2/file2/data.json
+
+sudo sed -i '$!s/$/,/'  /var/www/html/DashboardProc/web/Preguntas/seccion3/file2/data.json
+sudo sed -i '1s/^/[/'   /var/www/html/DashboardProc/web/Preguntas/seccion3/file2/data.json
+sudo sed -i "\$a]"      /var/www/html/DashboardProc/web/Preguntas/seccion3/file2/data.json
+sudo sed -i -e 's|collect_list(valor)|preguntas|g' /var/www/html/DashboardProc/web/Preguntas/seccion3/file2/data.json
 
 
 exit
