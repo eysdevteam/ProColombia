@@ -1,0 +1,8 @@
+[
+            {"seccion":"Sección 2","valor":[5],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5"]},
+            {"seccion":"Sección 2","valor":[4],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4"]},
+            {"seccion":"Sección 2","valor":[6],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5","pregunta6"]},
+            {"seccion":"Sección 2","valor":[7],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5","pregunta6","pregunta7"]},
+            {"seccion":"Sección 2","valor":[1],"preguntas": ["pregunta1"]}
+       
+    ]

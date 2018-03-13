@@ -401,10 +401,12 @@ var imagen = svg.append("svg:image")
 
 ////////////////FunciÃƒÂ³n principal////////////////////////////////////////
 function principalBullet(data,container,title, ind){
+
    if(ind){
       var margin = {top: 5, right: 20, bottom: 20, left: 0},
-      width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
-      height = 25;
+      //width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
+      width = 235
+      height = 20;
     }
     else{
       var margin = {top: 5, right: 40, bottom: 20, left: 70},
@@ -483,7 +485,7 @@ else{
 
 ////////////////FunciÃƒÂ³n principal////////////////////////////////////////
 function principalBullet2(data,container,title){
-        var margin = {top: 5, right: 100, bottom: 20, left: 10},
+        var margin = {top: 5, right: 100, bottom: 50, left: 10},
     width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
     height = 25;
     var chart = d3.bullet()
@@ -552,6 +554,7 @@ function principalBullet2(data,container,title){
         // Update the range rects.
         var range = g.selectAll("rect.range")
         .data(rangez);
+        
         // Rect categories         
         range.enter().append("rect")
           .attr("class", function(d, i) { return "range m" + i; })
@@ -563,7 +566,7 @@ function principalBullet2(data,container,title){
 
           for (var i = 0; i <= markerz.length - 1 ; i++) {
               valores = [questionz.preguntas[i]];
-              console.log(valores);
+
               var marker = g.selectAll("line.marker")
               .data(valores);
 

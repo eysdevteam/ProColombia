@@ -1,65 +1,46 @@
-app.controller("Q_S1", function($scope){
-    $scope.datatest = [
-        {"seccion":"Sección 1","contC":[5],"valor":[1,1,1,1,5]}      
-    ];
-    $scope.datamodal = [
-            {"seccion":"Sección 1","valor":[1],"preguntas": ["pregunta3"]},
-            {"seccion":"Sección 1","valor":[1],"preguntas": ["pregunta2"]},
-            {"seccion":"Sección 1","valor":[1],"preguntas": ["pregunta1"]},
-            {"seccion":"Sección 1","valor":[1],"preguntas": ["pregunta1"]},
-            {"seccion":"Sección 1","valor":[5],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5"]}
-        
-    ];
-    
- 
-    $scope.datatest[0]["preguntas"]=[];
-    for(i = 0; i <= $scope.datamodal.length-1; i++){
-        $scope.datatest[0].preguntas.push($scope.datamodal[i]);
-    }    
-    principalBullet($scope.datatest, "#Q_S1", title=false, ind=true);
+app.controller("Q_S1", function($scope, $http, $q){
+    $scope.datatest=$http.get("web/Preguntas/seccion1/file2/data.json");
+    $scope.datamodal=$http.get("web/Preguntas/seccion1/file1/data.json");
+
+    $q.all([$scope.datatest, $scope.datamodal]).then(function(d){
+        $scope.datatest = d[0].data;
+        $scope.datamodal = d[1].data;
+        $scope.datatest[0]["preguntas"]=[];
+        for(i = 0; i <= $scope.datamodal.length-1; i++){
+            $scope.datatest[0].preguntas.push($scope.datamodal[i]);
+        }    
+        principalBullet($scope.datatest, "#Q_S1", title=false, ind=true);
+    });
 
 });
-app.controller("Q_S2", function($scope){
-    $scope.datatest = [        
-        {"seccion":"Sección 1","contC":[5],"valor":[5,4,6,7,1]}      
-    ];
-    $scope.datamodal = [
-            {"seccion":"Sección 2","valor":[5],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5"]},
-            {"seccion":"Sección 2","valor":[4],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4"]},
-            {"seccion":"Sección 2","valor":[6],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5","pregunta6"]},
-            {"seccion":"Sección 2","valor":[7],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5","pregunta6","pregunta7"]},
-            {"seccion":"Sección 2","valor":[1],"preguntas": ["pregunta1"]}
-       
-    ];
+app.controller("Q_S2", function($scope, $http, $q){
+    $scope.datatest=$http.get("web/Preguntas/seccion2/file2/data.json");
+    $scope.datamodal=$http.get("web/Preguntas/seccion2/file1/data.json");
 
-    $scope.datatest[0]["preguntas"]=[];
-    for(i = 0; i <= $scope.datamodal.length-1; i++){
-        $scope.datatest[0].preguntas.push($scope.datamodal[i]);
-    } 
-
-    principalBullet($scope.datatest, "#Q_S2", title=false, ind=true);
+    $q.all([$scope.datatest, $scope.datamodal]).then(function(d){
+        $scope.datatest = d[0].data;
+        $scope.datamodal = d[1].data;
+        $scope.datatest[0]["preguntas"]=[];
+        for(i = 0; i <= $scope.datamodal.length-1; i++){
+            $scope.datatest[0].preguntas.push($scope.datamodal[i]);
+        }    
+        principalBullet($scope.datatest, "#Q_S2", title=false, ind=true);
+    });
 
 });
-app.controller("Q_S3", function($scope){
-    $scope.datatest = [
-        {"seccion":"Sección 3","contC":[5],"valor":[1,1,1,1,5]}  
-    ];
-    $scope.datamodal = [
-            {"seccion":"Sección 3","valor":[1],"preguntas": ["pregunta3"]},
-            {"seccion":"Sección 3","valor":[1],"preguntas": ["pregunta2"]},
-            {"seccion":"Sección 3","valor":[1],"preguntas": ["pregunta1"]},
-            {"seccion":"Sección 3","valor":[1],"preguntas": ["pregunta1"]},
-            {"seccion":"Sección 3","valor":[5],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5"]}
-        
-    ];
-    
-    $scope.datatest[0]["preguntas"]=[];
-    for(i = 0; i <= $scope.datamodal.length-1; i++){
-        $scope.datatest[0].preguntas.push($scope.datamodal[i]);
-    } 
-    
-    principalBullet($scope.datatest, "#Q_S3", title=false, ind=true);
+app.controller("Q_S3", function($scope, $http, $q){
+    $scope.datatest=$http.get("web/Preguntas/seccion3/file2/data.json");
+    $scope.datamodal=$http.get("web/Preguntas/seccion3/file1/data.json");
 
+    $q.all([$scope.datatest, $scope.datamodal]).then(function(d){
+        $scope.datatest = d[0].data;
+        $scope.datamodal = d[1].data;
+        $scope.datatest[0]["preguntas"]=[];
+        for(i = 0; i <= $scope.datamodal.length-1; i++){
+            $scope.datatest[0].preguntas.push($scope.datamodal[i]);
+        } 
+        principalBullet($scope.datatest, "#Q_S3", title=false, ind=true);   
+    });
 });
 
 app.controller("TabsController", function($scope){
@@ -74,6 +55,7 @@ app.controller("EGMGDI_bullet", function ($scope, $http) {
         $scope.data=data.data;
         principalBullet($scope.data, "#EGMGDI_bullet", title=true, ind=false);
     });
+
 });
 
 app.controller("EGMGDI_donut", function ($scope, $http) {
