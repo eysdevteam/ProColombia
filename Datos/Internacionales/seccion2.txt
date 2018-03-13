@@ -1,0 +1,20 @@
+En desacuerdo,Neutral,Neutral,Neutral,De acuerdo,De acuerdo
+Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,De acuerdo,De acuerdo
+En desacuerdo,En desacuerdo,Total acuerdo,De acuerdo,Neutral,Total acuerdo
+Total desacuerdo,Neutral,Neutral,Total acuerdo,Neutral,En desacuerdo
+Total acuerdo,Neutral,De acuerdo,Total desacuerdo,Total acuerdo,Total acuerdo
+En desacuerdo,Neutral,Total acuerdo,En desacuerdo,En desacuerdo,Neutral
+Total desacuerdo,Total desacuerdo,Total acuerdo,Total acuerdo,En desacuerdo,Neutral
+En desacuerdo,De acuerdo,Total acuerdo,Total acuerdo,Total desacuerdo,En desacuerdo
+Total desacuerdo,En desacuerdo,Total acuerdo,Total acuerdo,Total desacuerdo,Total acuerdo
+Neutral,Total acuerdo,En desacuerdo,Total desacuerdo,Total acuerdo,Neutral
+En desacuerdo,Total acuerdo,Total acuerdo,De acuerdo,Neutral,Total desacuerdo
+Total acuerdo,Neutral,De acuerdo,Neutral,Total desacuerdo,Neutral
+Total desacuerdo,Total acuerdo,En desacuerdo,Neutral,Total desacuerdo,Total acuerdo
+Total acuerdo,Total acuerdo,Total acuerdo,De acuerdo,Total acuerdo,Total acuerdo
+En desacuerdo,Total acuerdo,En desacuerdo,Neutral,En desacuerdo,Total acuerdo
+De acuerdo,Total acuerdo,En desacuerdo,De acuerdo,De acuerdo,Total acuerdo
+Neutral,Neutral,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
+En desacuerdo,Total acuerdo,Total desacuerdo,Total acuerdo,En desacuerdo,De acuerdo
+Neutral,Total acuerdo,Neutral,Total acuerdo,Total desacuerdo,Total acuerdo
+Total acuerdo,De acuerdo,En desacuerdo,Total acuerdo,En desacuerdo,Neutral
