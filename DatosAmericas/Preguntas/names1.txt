@@ -1,0 +1,16 @@
+Existen estándares sobre cómo se usan y producen los datos de usuarios y clientes
+Existen políticas para administrar los datos que se publican
+Las políticas sobre los datos se entienden y se cumplen de forma coherente
+Existen reglas para compartir y mover datos dentro y fuera de Américas BPS
+Existe un estándar o política para calidad de los datos
+En Américas BPS estamos dispuestos a alinearnos a un sólo estándar de calidad de datos
+Existen estándares desde Tecnología para describir los datos
+Los controles de datos son lo suficientemente adecuados para que podamos confiar en todos los indicadores e información que se publica
+Podemos relacionar fácilmente nuestra necesidad de información con iniciativas y planes de negocio
+Nuestros sistemas de información tienen todos los datos que necesitamos para generar los reportes requeridos
+Los mecanismos para enviar y compartir de datos son adecuados y no suponen un riesgo en el cumplimiento de normas o leyes existentes
+Los indicadores generados siempre coinciden con informes similares producidos en otras áreas
+La función de la Tecnología es entregarme datos para que pueda analizarlos y generar mis indicadores
+Américas BPS ha publicado principios, lineamientos o políticas sobre cómo usar y producir datos e información
+Américas BPS tiene colaboradores diferentes para hacer analítica y generar reportes/indicadores
+Américas BPS toma decisiones guiadas por el análisis de datos, en lugar de estimaciones y proyecciones basadas únicamente en la experiencia y la intuición

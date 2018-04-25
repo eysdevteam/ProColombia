@@ -1,0 +1,3 @@
+En desacuerdo,Total acuerdo,En desacuerdo,Total acuerdo,En desacuerdo,Total acuerdo,De acuerdo,De acuerdo,En desacuerdo,Neutral,Total acuerdo,Total acuerdo
+En desacuerdo,Neutral,Neutral,En desacuerdo,De acuerdo,De acuerdo,De acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo
+De acuerdo,Total acuerdo,De acuerdo,Total acuerdo,Total acuerdo,Neutral,Total acuerdo,De acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo

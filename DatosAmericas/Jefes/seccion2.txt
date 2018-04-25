@@ -1,0 +1,15 @@
+De acuerdo,De acuerdo,De acuerdo,De acuerdo,De acuerdo,En desacuerdo
+Total acuerdo,Total acuerdo,Neutral,Total acuerdo,Total acuerdo,Neutral
+Total desacuerdo,Neutral,En desacuerdo,De acuerdo,De acuerdo,De acuerdo
+Total desacuerdo,De acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total desacuerdo
+De acuerdo,De acuerdo,Total acuerdo,De acuerdo,Neutral,De acuerdo
+Total desacuerdo,En desacuerdo,Neutral,De acuerdo,De acuerdo,De acuerdo
+En desacuerdo,De acuerdo,De acuerdo,De acuerdo,De acuerdo,De acuerdo
+De acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Neutral
+En desacuerdo,En desacuerdo,De acuerdo,De acuerdo,De acuerdo,Neutral
+En desacuerdo,En desacuerdo,Total acuerdo,De acuerdo,De acuerdo,En desacuerdo
+Neutral,Neutral,Neutral,Neutral,En desacuerdo,En desacuerdo
+Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo
+De acuerdo,De acuerdo,De acuerdo,De acuerdo,De acuerdo,De acuerdo
+De acuerdo,Neutral,De acuerdo,En desacuerdo,De acuerdo,De acuerdo
+De acuerdo,De acuerdo,Total acuerdo,De acuerdo,Total acuerdo,Neutral
