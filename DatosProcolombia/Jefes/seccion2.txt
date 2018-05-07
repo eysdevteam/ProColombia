@@ -1,20 +1,17 @@
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-En desacuerdo,Neutral,Neutral,Neutral,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-Neutral,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,Neutral,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-Neutral,Neutral,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,Neutral,En desacuerdo
-Neutral,En desacuerdo,En desacuerdo,En desacuerdo,Neutral,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,Neutral,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,Neutral
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,Neutral,En desacuerdo
-Neutral,En desacuerdo,En desacuerdo,En desacuerdo,Neutral,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-Neutral,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,Neutral,En desacuerdo,En desacuerdo,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,Neutral,En desacuerdo
-En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo,En desacuerdo
+﻿Total desacuerdo,En desacuerdo,Neutral,Total acuerdo,Total acuerdo,De acuerdo
+Total desacuerdo,De acuerdo,De acuerdo,Total acuerdo,Total acuerdo,De acuerdo
+En desacuerdo,Neutral,De acuerdo,Neutral,Neutral,Neutral
+En desacuerdo,De acuerdo,De acuerdo,Total acuerdo,De acuerdo,En desacuerdo
+En desacuerdo,De acuerdo,Total acuerdo,De acuerdo,De acuerdo,De acuerdo
+En desacuerdo,En desacuerdo,Total acuerdo,De acuerdo,De acuerdo,Neutral
+En desacuerdo,De acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo
+Neutral,Neutral,De acuerdo,Neutral,Neutral,De acuerdo
+Total desacuerdo,De acuerdo,De acuerdo,Neutral,Neutral,Neutral
+Total desacuerdo,En desacuerdo,Neutral,De acuerdo,De acuerdo,De acuerdo
+En desacuerdo,De acuerdo,De acuerdo,De acuerdo,De acuerdo,De acuerdo
+En desacuerdo,De acuerdo,De acuerdo,Total acuerdo,Total acuerdo,En desacuerdo
+En desacuerdo,De acuerdo,En desacuerdo,Total acuerdo,Total acuerdo,De acuerdo
+Total desacuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,En desacuerdo
+De acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo,Total acuerdo
+En desacuerdo,Total desacuerdo,Neutral,De acuerdo,Neutral,Total acuerdo
+En desacuerdo,De acuerdo,De acuerdo,De acuerdo,De acuerdo,Neutral

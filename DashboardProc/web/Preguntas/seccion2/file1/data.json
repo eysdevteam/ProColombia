@@ -1,8 +1,6 @@
-[
-            {"seccion":"Sección 2","valor":[5],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5"]},
-            {"seccion":"Sección 2","valor":[4],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4"]},
-            {"seccion":"Sección 2","valor":[6],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5","pregunta6"]},
-            {"seccion":"Sección 2","valor":[7],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5","pregunta6","pregunta7"]},
-            {"seccion":"Sección 2","valor":[1],"preguntas": ["pregunta1"]}
-       
-    ]
+[{"preguntas":[""],"valor":0,"seccion":"Colaborador"},
+{"preguntas":[""],"valor":0,"seccion":"Colaborador"},
+{"preguntas":["Mi área posee una única fuente de información para generar los reportes e indicadores","Mi área tiene que hacer su propia recopilación de datos"],"valor":2,"seccion":"Colaborador"},
+{"preguntas":["Mi área tiene la custodia de los datos que usamos; es decir","Entiendo los indicadores claves (KPI) que miden el desempeño de Procolombia","Recopilo y analizo información relacionada con las funciones de mi cargo","Utilizo el análisis de datos para introducir cambios y optimizaciones en mis procesos"],"valor":4,"seccion":"Colaborador"},
+{"preguntas":[""],"valor":0,"seccion":"Colaborador"}
+]

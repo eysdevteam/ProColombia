@@ -25,7 +25,7 @@ case class Obs2( q1: String, q2: String,
 	q3: String, q4: String, q5: String, q6: String)
  
 case class Obs3( q1: String, q2: String, 
-	q3: String, q4: String, q5: String, q6: String, q7: String, q8: String, q9: String, q10: String, q11: String, q12: String, q13: String, q14: String)
+	q3: String, q4: String, q5: String, q6: String, q7: String, q8: String, q9: String, q10: String, q11: String, q12: String)
  
 
 case class Obs5( k1: String, k2: String)
@@ -39,7 +39,7 @@ def parseObs2(line: Array[String]): Obs2 = {
     Obs2( line(0), line(1), line(2), line(3), line(4), line(5) ) }
     
 def parseObs3(line: Array[String]): Obs3 = {
-    Obs3( line(0), line(1), line(2), line(3), line(4), line(5), line(6), line(7), line(8), line(9), line(10), line(11), line(12), line(13) ) }
+    Obs3( line(0), line(1), line(2), line(3), line(4), line(5), line(6), line(7), line(8), line(9), line(10), line(11) ) }
 
 def parseObs5(line: Array[String]): Obs5 = {
     Obs5( line(0), line(1) ) }
@@ -120,16 +120,12 @@ val df319 =  df318.join(df5).where(df318("q9")===df5("k2")).drop("q9","k2").with
 val df320 =  df319.join(df5).where(df319("q10")===df5("k2")).drop("q10","k2").withColumnRenamed("k1","J10")
 val df321 =  df320.join(df5).where(df320("q11")===df5("k2")).drop("q11","k2").withColumnRenamed("k1","K11")
 val df322 =  df321.join(df5).where(df321("q12")===df5("k2")).drop("q12","k2").withColumnRenamed("k1","L12")
-val df323 =  df322.join(df5).where(df322("q13")===df5("k2")).drop("q13","k2").withColumnRenamed("k1","M13")
-val df324 =  df323.join(df5).where(df323("q14")===df5("k2")).drop("q14","k2").withColumnRenamed("k1","N14")
+
 
 val df1 = df26
 val df2 = df226
-val df3 = df324
+val df3 = df322
 
-val df1 = df26
-val df2 = df226
-val df3 = df324
 
 df1.coalesce(1).write.mode("overwrite").json("/home/centos/DatosProcolombia/Nacionales/Section1/")
 val fs = FileSystem.get(sc.hadoopConfiguration);
@@ -148,46 +144,45 @@ fs.rename(new Path("/home/centos/DatosProcolombia/Nacionales/Section3/"+file), n
 
 
 //Calcular el percentil de la seccion1 por cada una de de las preguntas
-val per11  = df1.stat.approxQuantile("A1",Array(0.75),0)
-val per12  = df1.stat.approxQuantile("B2",Array(0.75),0)
-val per13  = df1.stat.approxQuantile("C3",Array(0.75),0)
-val per14  = df1.stat.approxQuantile("D4",Array(0.75),0)
-val per15  = df1.stat.approxQuantile("E5",Array(0.75),0)
-val per16  = df1.stat.approxQuantile("F6",Array(0.75),0)
-val per17  = df1.stat.approxQuantile("G7",Array(0.75),0)
-val per18  = df1.stat.approxQuantile("H8",Array(0.75),0)
-val per19  = df1.stat.approxQuantile("I9",Array(0.75),0)
-val per110 = df1.stat.approxQuantile("J10",Array(0.75),0)
-val per111 = df1.stat.approxQuantile("K11",Array(0.75),0)
-val per112 = df1.stat.approxQuantile("L12",Array(0.75),0)
-val per113 = df1.stat.approxQuantile("M13",Array(0.75),0)
-val per114 = df1.stat.approxQuantile("N14",Array(0.75),0)
-val per115 = df1.stat.approxQuantile("O15",Array(0.75),0)
-val per116 = df1.stat.approxQuantile("P16",Array(0.75),0)
+val per11  = df1.stat.approxQuantile("A1",Array(0.60),0)
+val per12  = df1.stat.approxQuantile("B2",Array(0.60),0)
+val per13  = df1.stat.approxQuantile("C3",Array(0.60),0)
+val per14  = df1.stat.approxQuantile("D4",Array(0.60),0)
+val per15  = df1.stat.approxQuantile("E5",Array(0.60),0)
+val per16  = df1.stat.approxQuantile("F6",Array(0.60),0)
+val per17  = df1.stat.approxQuantile("G7",Array(0.60),0)
+val per18  = df1.stat.approxQuantile("H8",Array(0.60),0)
+val per19  = df1.stat.approxQuantile("I9",Array(0.60),0)
+val per110 = df1.stat.approxQuantile("J10",Array(0.60),0)
+val per111 = df1.stat.approxQuantile("K11",Array(0.60),0)
+val per112 = df1.stat.approxQuantile("L12",Array(0.60),0)
+val per113 = df1.stat.approxQuantile("M13",Array(0.60),0)
+val per114 = df1.stat.approxQuantile("N14",Array(0.60),0)
+val per115 = df1.stat.approxQuantile("O15",Array(0.60),0)
+val per116 = df1.stat.approxQuantile("P16",Array(0.60),0)
 
 //Calcular el percentil de la seccion2 por cada una de de las preguntas
-val per21  = df2.stat.approxQuantile("A1",Array(0.75),0)
-val per22  = df2.stat.approxQuantile("B2",Array(0.75),0)
-val per23  = df2.stat.approxQuantile("C3",Array(0.75),0)
-val per24  = df2.stat.approxQuantile("D4",Array(0.75),0)
-val per25  = df2.stat.approxQuantile("E5",Array(0.75),0)
-val per26  = df2.stat.approxQuantile("F6",Array(0.75),0)
+val per21  = df2.stat.approxQuantile("A1",Array(0.60),0)
+val per22  = df2.stat.approxQuantile("B2",Array(0.60),0)
+val per23  = df2.stat.approxQuantile("C3",Array(0.60),0)
+val per24  = df2.stat.approxQuantile("D4",Array(0.60),0)
+val per25  = df2.stat.approxQuantile("E5",Array(0.60),0)
+val per26  = df2.stat.approxQuantile("F6",Array(0.60),0)
 
 //Calcular el percentil de la seccion3 por cada una de de las preguntas
-val per31  = df3.stat.approxQuantile("A1",Array(0.75),0)
-val per32  = df3.stat.approxQuantile("B2",Array(0.75),0)
-val per33  = df3.stat.approxQuantile("C3",Array(0.75),0)
-val per34  = df3.stat.approxQuantile("D4",Array(0.75),0)
-val per35  = df3.stat.approxQuantile("E5",Array(0.75),0)
-val per36  = df3.stat.approxQuantile("F6",Array(0.75),0)
-val per37  = df3.stat.approxQuantile("G7",Array(0.75),0)
-val per38  = df3.stat.approxQuantile("H8",Array(0.75),0)
-val per39  = df3.stat.approxQuantile("I9",Array(0.75),0)
-val per310  = df3.stat.approxQuantile("J10",Array(0.75),0)
-val per311  = df3.stat.approxQuantile("K11",Array(0.75),0)
-val per312  = df3.stat.approxQuantile("L12",Array(0.75),0)
-val per313  = df3.stat.approxQuantile("M13",Array(0.75),0)
-val per314  = df3.stat.approxQuantile("N14",Array(0.75),0)
+val per31  = df3.stat.approxQuantile("A1",Array(0.60),0)
+val per32  = df3.stat.approxQuantile("B2",Array(0.60),0)
+val per33  = df3.stat.approxQuantile("C3",Array(0.60),0)
+val per34  = df3.stat.approxQuantile("D4",Array(0.60),0)
+val per35  = df3.stat.approxQuantile("E5",Array(0.60),0)
+val per36  = df3.stat.approxQuantile("F6",Array(0.60),0)
+val per37  = df3.stat.approxQuantile("G7",Array(0.60),0)
+val per38  = df3.stat.approxQuantile("H8",Array(0.60),0)
+val per39  = df3.stat.approxQuantile("I9",Array(0.60),0)
+val per310  = df3.stat.approxQuantile("J10",Array(0.60),0)
+val per311  = df3.stat.approxQuantile("K11",Array(0.60),0)
+val per312  = df3.stat.approxQuantile("L12",Array(0.60),0)
+
 
 //Almacenar en un solo Array el percentil de cada pregunta de la secciÃƒÂ³n 1 
 val distance1 = new ArrayBuffer[Double]()
@@ -232,8 +227,7 @@ distance3 += per39(0)
 distance3 += per310(0)
 distance3 += per311(0)
 distance3 += per312(0)
-distance3 += per313(0)
-distance3 += per314(0)
+
 
 
 
@@ -247,11 +241,11 @@ val df33 = distance3.map(x => x.toDouble).toDF("section3")
 
 
 //Calcular el percentil de la seccion1 tomando los percentiles de cada una de las preguntas de la  misma seccion1
-val PerSection1 = df11.stat.approxQuantile("section1",Array(0.75),0).toBuffer
+val PerSection1 = df11.stat.approxQuantile("section1",Array(0.60),0).toBuffer
 //Calcular el percentil de la seccion2 tomando los percentiles de cada una de las preguntas de la  misma seccion2
-val PerSection2 = df22.stat.approxQuantile("section2",Array(0.75),0).toBuffer
+val PerSection2 = df22.stat.approxQuantile("section2",Array(0.60),0).toBuffer
 //Calcular el percentil de la seccion2 tomando los percentiles de cada una de las preguntas de la  misma seccion3
-val PerSection3 = df33.stat.approxQuantile("section3",Array(0.75),0).toBuffer
+val PerSection3 = df33.stat.approxQuantile("section3",Array(0.60),0).toBuffer
 
 
 val name1 = ArrayBuffer[String]("Seccion1").toDF("seccion").withColumn("id", monotonicallyIncreasingId+1.toFloat)
@@ -287,7 +281,7 @@ fs.rename(new Path("/var/www/html/DashboardProc/web/Nacionales/bullet/"+file), n
 
 //Export data donuts graph
 
-val dfK = k.toDF("Colaboradores").withColumn("total",lit(50))
+val dfK = k.toDF("Colaboradores").withColumn("total",lit(500))
 dfK.coalesce(1).write.mode("overwrite").format("com.databricks.spark.csv").option("header", "FALSE").save("/var/www/html/DashboardProc/web/Nacionales/donut/")
 val file = fs.globStatus(new Path("/var/www/html/DashboardProc/web/Nacionales/donut/part*"))(0).getPath().getName();
 fs.rename(new Path("/var/www/html/DashboardProc/web/Nacionales/donut/"+file), new Path("/var/www/html/DashboardProc/web/Nacionales/donut/donut.json"));

@@ -1,8 +1,6 @@
-[
-            {"seccion":"Sección 3","valor":[1],"preguntas": ["pregunta3"]},
-            {"seccion":"Sección 3","valor":[1],"preguntas": ["pregunta2"]},
-            {"seccion":"Sección 3","valor":[1],"preguntas": ["pregunta1"]},
-            {"seccion":"Sección 3","valor":[1],"preguntas": ["pregunta1"]},
-            {"seccion":"Sección 3","valor":[5],"preguntas": ["pregunta1","pregunta2","pregunta3","pregunta4","pregunta5"]}
-        
-    ]
+[{"preguntas":[""],"valor":0,"seccion":"Cambio"},
+{"preguntas":[""],"valor":0,"seccion":"Cambio"},
+{"preguntas":[""],"valor":0,"seccion":"Cambio"},
+{"preguntas":["Existen estándares sobre cómo se usan y producen los datos de usuarios y clientes","Existen políticas para administrar los datos que se publican","Las políticas sobre los datos se entienden y se cumplen de forma coherente","Existen reglas para compartir y mover datos dentro y fuera de ProColombia","Existe un estándar o política para calidad de los datos","En ProColombia estamos dispuestos a alinearnos a un sólo estándar de calidad de datos","Existen estándares desde Tecnología para describir los datos","Los controles de datos son lo suficientemente adecuados para que podamos confiar en todos los indicadores e información que se publica","Podemos relacionar fácilmente nuestra necesidad de información con iniciativas de nuestro(s) eje(s) de negocio","Nuestros sistemas de información tienen todos los datos que necesitamos para generar los reportes requeridos","Los controles sobre los datos son adecuados y no es una preocupación el incumplimiento de asuntos regulatorios relacionados con los datos","Los indicadores generados siempre coinciden con informes similares producidos en otras áreas"],"valor":12,"seccion":"Cambio"},
+{"preguntas":[""],"valor":0,"seccion":"Cambio"}
+]

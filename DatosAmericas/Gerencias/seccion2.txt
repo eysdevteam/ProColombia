@@ -1,3 +1,0 @@
-De acuerdo,En desacuerdo,De acuerdo,De acuerdo,En desacuerdo,Total acuerdo
-De acuerdo,De acuerdo,De acuerdo,De acuerdo,En desacuerdo,Total acuerdo
-De acuerdo,En desacuerdo,Total acuerdo,De acuerdo,De acuerdo,En desacuerdo

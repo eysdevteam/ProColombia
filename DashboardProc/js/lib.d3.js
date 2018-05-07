@@ -30,7 +30,7 @@ function table(dataset, columnas, container){
 // Donut Library
 function donut(indi, relleno, container) {
    
-  var width = 100;
+  var width = 120;
       height = 150,
       radius = Math.min(width, height) / 2;
         
@@ -56,7 +56,7 @@ function donut(indi, relleno, container) {
       .attr("fill", function(d,i) { return color(i); })
       .attr("d", arc);
       
-  if(indi[1] < 99) {
+/*  if(indi[1] < 99) {
     svg.append("text")
     .text(indi[0]+"/"+indi[1])
     .attr("class", "units-label")
@@ -71,15 +71,35 @@ function donut(indi, relleno, container) {
     .attr("x", ((radius/2)*-1)-9)
     .attr("y", radius-45)
     .attr("font-size", 23);
-  }    
+  }    */
 
-  
+var indi1 = indi[1].toString();
+var indi0 = indi[0].toString();
+
+    if(indi1.length > 3) {
+	svg.append("text")
+        .text(indi0.padStart(3,"0")+"/"+indi1.padStart(3,"0"))
+        .attr("class", "units-label")
+        .attr("x", ((radius/2)*-1)-16)
+        .attr("y", radius-50)
+        .attr("font-size", 22);
+    }
+    else{
+        svg.append("text")
+        .text(indi0.padStart(3,"0")+"/"+indi1.padStart(3,"0"))
+        .attr("class", "units-label")
+        .attr("x", ((radius/2)*-1)-10)
+        .attr("y", radius-50)
+    	.attr("font-size", 23);
+    }
+
+    svg.append("text")
+       .text("Colab")
+       .attr("x", ((radius/2)*-1)+15)
+       .attr("y", radius-27)
+       .attr("font-size", 12);
+
     
-  svg.append("text")
-    .text("Colab")
-    .attr("x", ((radius/2)*-1)+9)
-    .attr("y", radius-27)
-    .attr("font-size", 12);
 }
 
 // Tabla Library 
